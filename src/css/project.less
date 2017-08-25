@@ -42,3 +42,17 @@
 .one-elem {
 	.flex(0 0 50%);
 }
+
+
+	.details-group {
+	.flex-wrap(wrap);
+	.display-flex;
+    .justify-content(center);
+    .align-items(flex-end);
+    .flex-direction(row);
+
+    @media @mobile {
+    	.flex-direction(column);
+    }
+
+	}

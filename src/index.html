@@ -34,24 +34,6 @@
 
         <% } %>
 
-        <% if (t.style == "four") { %>
-
-        <div class="group-container">
-          <div class="sub-hed"><%=t.look_title%></div>
-          <div class="main-group">
-            <div class="main-img"><img src="http://ww2.hdnux.com/photos/64/74/22/<%= t.main_img %>/3/700x700.jpg"></img></div>
-            <div class="main-caption"><%=t.caption%></div>
-          </div>
-          <div class="details-group">
-            <% t.details.forEach(function(d) { %>
-            <div class="detail-img"><img src="http://ww2.hdnux.com/photos/64/74/22/<%= d.detail_img %>/3/700x700.jpg"></img> 
-            <div class="detail-caption"><%=d.detail_text%></div>
-            <% }) %>
-          </div>
-        </div>
-
-        <% } %>
-
       <% }) %>
       
     </div>
