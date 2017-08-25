@@ -19,8 +19,41 @@
     <%= t.include("partials/_nav.html") %>
 
 
-    <div class="container">
-      <p>Content goes here...</p>
+    <div class="main-container">
+      <% json.looks.looks.forEach(function(t) { %>
+
+        <% if (t.style == "one") { %>
+
+        <div class="one group-container">
+          <div class="sub-hed"><%=t.look_title%></div>
+          <div class="main-group">
+            <div class="main-img one-elem"><img src="http://ww2.hdnux.com/photos/64/74/22/<%= t.main_img %>/3/500x500.jpg"></img></div>
+            <div class="main-caption one-elem"><%=t.caption%></div>
+          </div>
+        </div>
+
+        <% } %>
+
+        <% if (t.style == "four") { %>
+
+        <div class="group-container">
+          <div class="sub-hed"><%=t.look_title%></div>
+          <div class="main-group">
+            <div class="main-img"><img src="http://ww2.hdnux.com/photos/64/74/22/<%= t.main_img %>/3/700x700.jpg"></img></div>
+            <div class="main-caption"><%=t.caption%></div>
+          </div>
+          <div class="details-group">
+            <% t.details.forEach(function(d) { %>
+            <div class="detail-img"><img src="http://ww2.hdnux.com/photos/64/74/22/<%= d.detail_img %>/3/700x700.jpg"></img> 
+            <div class="detail-caption"><%=d.detail_text%></div>
+            <% }) %>
+          </div>
+        </div>
+
+        <% } %>
+
+      <% }) %>
+      
     </div>
 
     <%= t.include("partials/_footer.html") %>
