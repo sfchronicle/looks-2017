@@ -10,14 +10,10 @@
 
     <%= !json.project.embedded ? t.include("partials/_paywall.html") : t.include("partials/_embedframe.html") %>
 
-    <%= t.include("partials/_head.html") %>
 
   </head>
 
-  <%= !json.project.embedded ? "<body>" : "<body is='responsive-body'>" %>
-
-    <%= t.include("partials/_nav.html") %>
-
+  <body is='responsive-body'>
 
     <div class="main-container">
       <% json.looks.looks.forEach(function(t) { %>
@@ -31,26 +27,64 @@
             <div class="main-caption"><%=t.caption%></div>
           </div>
 
-          <div class="details-group">
-            <% t.details.forEach(function(d) { %>
-            <% if (d.type == "horizontal") { %>
-              <div class="horizontal-group">
-                <div class="detail-img"><img src="http://ww2.hdnux.com/photos/64/74/22/<%= d.detail_img %>/3/500x500.jpg"></img></div> 
-                <div class="detail-caption"><%=d.detail_text%></div>
+          
+            
+                
+              <div class="flex">
+                <div class="flex-img-vert"><img src="http://ww2.hdnux.com/photos/64/74/22/13878445/3/450x450.jpg"></img></div> 
+                <div class="flex-caption">Detail of a Lanvin vintage bracelet, $675, MDVII, against Saint Laurent’s liquid gold dress, $2,990, Barneys New York, S.F.</div>
               </div>
-            <% } else if (d.type == "vertical") { %>
 
-              <div class="vertical-group two-elem">
-                <div class="detail-img"><img src="http://ww2.hdnux.com/photos/64/74/22/<%= d.detail_img %>/3/450x450.jpg"></img></div> 
-                <div class="detail-caption-vertical"><%=d.detail_text%></div>
+              <div class="flex">
+                <div class="flex-img-vert"><img src="http://ww2.hdnux.com/photos/64/74/22/13878444/3/450x450.jpg"></img></div> 
+                <div class="flex-caption">Laila in a Saint Laurent liquid gold dress, $2,990; gold and turquoise vintage earrings, $475, and Lanvin vintage bracelet, $675, both MDVII.</div>
               </div>
-            <% } %>
-           <% }) %>
-          </div>
 
-        </div>
+
+
+              <% t.details.forEach(function(d) { %>
+            
+              <% if (d.type == "horizontal") { %>
+                <div class="flex">
+                  <div class="flex-img"><img src="http://ww2.hdnux.com/photos/64/74/22/<%= d.detail_img %>/3/500x500.jpg"></img></div> 
+                  <div class="flex-caption"><%=d.detail_text%></div>
+                </div>
+              <% } %>
+
+            <% }); %>    
+            </div>
+
+         
 
         <% } %>
+
+
+
+
+
+
+        <% if (t.style == "two") { %>
+        <div class="two group-container">
+          <div class="sub-hed"><%=t.look_title%></div>
+          <div class="main-two">
+            <div class="two-elem img"><img src="http://ww2.hdnux.com/photos/64/74/22/<%= t.main_img %>/3/500x0.jpg"></img></div>
+            <div class="two-elem text"><%=t.caption%></div>
+          </div>
+          
+          <div class="two-details">
+          <% t.details.forEach(function(d) { %>
+            
+              <div class="two-details-elem">
+                <img src="http://ww2.hdnux.com/photos/64/74/22/<%= d.detail_img %>/3/500x500.jpg"></img>
+              </div>
+          
+          <% }); %>
+          </div>
+           
+          
+        </div>
+        <% } %>
+
 
 
         <% if (t.style == "three") { %>
@@ -63,9 +97,9 @@
 
           <div class="details-group">
             <% t.details.forEach(function(d) { %>
-            <div class="vertical-group four-elem">
-                <div class="detail-img"><img src="http://ww2.hdnux.com/photos/64/74/22/<%= d.detail_img %>/3/250x250.jpg"></img></div> 
-                <div class="detail-caption-vertical"><%=d.detail_text%></div>
+            <div class="four-elem">
+                <img src="http://ww2.hdnux.com/photos/64/74/22/<%= d.detail_img %>/3/premium_gallery_portrait.jpg"></img>
+                <div class=""><%=d.detail_text%></div>
             </div>
             <% }) %>
           </div>
@@ -74,11 +108,82 @@
 
         <% } %>
 
+
+
+
+        <% if (t.style == "four") { %>
+        <div class="four group-container">
+          <div class="sub-hed"><%=t.look_title%></div>
+          <div class="flex four">
+            <div class="flex-img four"><img src="http://ww2.hdnux.com/photos/64/74/22/<%= t.main_img %>/3/500x0.jpg"></img></div>
+            <div class="flex-caption"><%=t.caption%></div>
+          </div>
+        </div>
+        <% } %>
+
+
+        <% if (t.style == "five") { %>
+        <div class="five group-container">
+          <div class="sub-hed"><%=t.look_title%></div>
+          <div class="main-img">
+            <img src="http://ww2.hdnux.com/photos/64/74/22/<%= t.main_img %>/3/1000x0.jpg"></img>
+            <div class="main-caption"><%=t.caption%></div>
+          </div>
+          <div class="flex-two">
+          <% t.details.forEach(function(d) { %>
+            <div class="flex-two-item">
+              <img src="http://ww2.hdnux.com/photos/64/74/22/<%= d.detail_img %>/3/premium_gallery_portrait.jpg"></img>
+              <div class=""><%=d.detail_text%></div>
+            </div>
+            <% }) %>
+            </div>
+        </div>
+        <% } %>
+
+
+        <% if (t.style == "six") { %>
+        <div class="six group-container">
+          <div class="sub-hed"><%=t.look_title%></div>
+          <div class="main-img">
+            <img src="http://ww2.hdnux.com/photos/64/74/22/<%= t.main_img %>/3/1000x0.jpg"></img>
+            <div class="main-caption"><%=t.caption%></div>
+          </div>
+
+            <div class="main-img">
+              <img src="http://ww2.hdnux.com/photos/64/74/22/13878446/3/1000x0.jpg"></img>
+            </div> 
+            <div class="main-caption">Left to right: Gucci sunglasses; Alchimia di Ballin’s Artogeia ankle boots, $1,395, Barneys New York; vintage bracelet, $675, MDVII; Alexander Wang Roxy mini-bucket bag, $595, Nordstrom; Chanel black vintage cuff, $2,47; Lanvin white vintage cuff, $1,875; Yves Saint Laurent gold hoop vintage earrings, $875; gold stretch bracelet and Chanel gold cuff, $2,475, all MDVII; Givenchy blue horizon mini bag, $1,990, Barneys New York; Stella McCartney sunglasses.
+            </div>
+        </div>
+
+        <% } %>
+
+
+
+        <% if (t.style == "seven") { %>
+        <div class="four group-container">
+          <div class="sub-hed"><%=t.look_title%></div>
+          <div class="flex four">
+            <div class="flex-img four"><img src="http://ww2.hdnux.com/photos/64/74/22/<%= t.main_img %>/3/500x0.jpg"></img></div>
+            <div class="flex-caption"><%=t.caption%></div>
+          </div>
+        </div>
+        <% } %>
+
+
+
+
+
+
+
+
+
+
+
       <% }) %>
       
     </div>
 
-    <%= t.include("partials/_footer.html") %>
 
     <script src="app.js" async></script>
     <%= t.include("partials/_helloSFC.html") %>
